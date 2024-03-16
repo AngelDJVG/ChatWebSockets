@@ -1,0 +1,79 @@
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.listas {
+    display: flex;
+    flex-direction: row; /* Cambiado a "row" para que las listas estén una al lado de la otra */
+}
+
+#lista-mensajes {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 10px;
+    color: #fff; /* Letras blancas */
+    background-color: #000000;
+    transition: background-color 0.3s ease;
+}
+
+#lista-sesiones {
+    width: 30%;
+    background-color: #1b332e;
+    padding: 10px;
+    order: 2; /* Cambiado a 2 para que aparezca a la derecha */
+    transition: background-color 0.3s ease;
+}
+
+#lista-sesiones li {
+    margin-bottom: 5px;
+}
+
+#lista-mensajes li {
+    margin-bottom: 10px;
+}
+
+#mensaje-input {
+    width: calc(100% - 80px);
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #444;
+    color: #fff; /* Letras blancas */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333;
+}

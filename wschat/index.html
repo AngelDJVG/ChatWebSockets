@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body onload="setDefaultCheckbox()">
+    <h1 id="sesion-actual"></h1>
+
+    <select id="combobox-id" name="id">
+        <option value="Todos">Todos</option>
+    </select>
+
+    <input type="checkbox" id="mensaje-checkbox" onchange="toggleFields('mensaje')" checked>Mensaje
+    <input type="checkbox" id="entidad-checkbox" onchange="toggleFields('entidad')">Entidad
+
+    <div id="mensaje-fields">
+        <input type="text" id="mensaje-input" placeholder="Escribe tu mensaje...">
+    </div>
+
+    <div id="entidad-fields" class="hidden">
+        <label for="nombre-input">Nombre:</label>
+        <input type="text" id="nombre-input" placeholder="Ingrese su nombre">
+        <label for="calificaciones-input">Calificaciones:</label>
+        <input type="number" id="calificaciones-input" placeholder="Ingrese sus calificaciones" step="0.01">
+    </div>
+
+    <button onclick="enviarMensaje()">Enviar</button>
+
+    <div class="listas">
+        <ul id="lista-mensajes"></ul>
+        <table id="lista-sesiones">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Calificaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas de la tabla dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        function toggleFields(type) {
+            var mensajeFields = document.getElementById('mensaje-fields');
+            var entidadFields = document.getElementById('entidad-fields');
+            var mensajeCheckbox = document.getElementById('mensaje-checkbox');
+            var entidadCheckbox = document.getElementById('entidad-checkbox');
+
+            if (type === 'mensaje') {
+                mensajeFields.classList.remove('hidden');
+                entidadFields.classList.add('hidden');
+                entidadCheckbox.checked = false;
+            } else if (type === 'entidad') {
+                entidadFields.classList.remove('hidden');
+                mensajeFields.classList.add('hidden');
+                mensajeCheckbox.checked = false;
+            }
+        }
+
+        function setDefaultCheckbox() {
+            var mensajeCheckbox = document.getElementById('mensaje-checkbox');
+            var entidadCheckbox = document.getElementById('entidad-checkbox');
+            mensajeCheckbox.checked = true;
+            entidadCheckbox.checked = false;
+        }
+    </script>
+</body>
+
+</html>
